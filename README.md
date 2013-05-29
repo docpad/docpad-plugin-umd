@@ -26,6 +26,18 @@ umd: true
 // your javascript content
 ```
 
+and it will be transformed into:
+
+``` javascript
+/*global define:false require:false */
+(function (name, context, definition) {
+	if (typeof module != 'undefined' && module.exports) module.exports = definition();
+	else if (typeof define == 'function' && define.amd) define(definition);
+	else context[name] = definition();
+})('the-javascript-file-basename', this, function(){
+	// your javascript content
+});
+```
 
 ## History
 [You can discover the history inside the `History.md` file](https://github.com/bevry/docpad-plugin-umd/blob/master/History.md#files)
