@@ -18,29 +18,29 @@ module.exports = (BasePlugin) ->
 						if (typeof module != 'undefined' && module.exports) module.exports = definition();
 						else if (typeof define == 'function' && define.amd) define(definition);
 						else context[name] = definition();
-					})('#{opts.file.get('basename')}', this, """
+					})('#{opts.file.get('basename')}', this, """.trim()
 
 				# Footer
-				suffix =
-					"""
-					);"""
+				suffix = ');'
 
-				# Strip
-				strippedContent = opts.content
-					.replace(/^function\s*\(\s*\)\s*\{\s*/, '')
-					.replace(/\s*(\(\)|.call\(this\));?\s*$/, '')
+				# Only run if we haven't been applied already
+				if opts.content.indexOf(prefix) is -1
+					# Strip
+					strippedContent = opts.content
+						.replace(/^function\s*\(\s*\)\s*\{\s*/, '')
+						.replace(/\s*(\(\)|.call\(this\));?\s*$/, '')
 
-				# Ensure function
-				if strippedContent[0] is '(' and strippedContent.substr(-1) is ')'
-					strippedContent = strippedContent.substring(1,strippedContent.length-1).replace(/^\s|\s$/g, '')
-				unless /^function/.test(strippedContent)
-					strippedContent = 'function(){\n'+strippedContent+'\n}'
+					# Ensure function
+					if strippedContent[0] is '(' and strippedContent.substr(-1) is ')'
+						strippedContent = strippedContent.substring(1,strippedContent.length-1).replace(/^\s|\s$/g, '')
+					unless /^function/.test(strippedContent)
+						strippedContent = 'function(){\n'+strippedContent+'\n}'
 
-				# Apply
-				opts.content =
-					prefix +
-					strippedContent +
-					suffix
+					# Apply
+					opts.content =
+						prefix + ' ' +
+						strippedContent +
+						suffix
 
 			# Done
 			return

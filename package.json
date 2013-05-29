@@ -1,6 +1,6 @@
 {
 	"name": "docpad-plugin-umd",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Wrap specified JavaScript documents in the Universal Module Definition (UMD) allowing them to run in AMD, Require.js, CommonJS/Node.js and Vanilla environments automatically",
 	"homepage": "http://docpad.org/plugin/umd",
 	"keywords": [
