@@ -31,6 +31,10 @@ umd: true
 [You can discover the history inside the `History.md` file](https://github.com/bevry/docpad-plugin-umd/blob/master/History.md#files)
 
 
+## Backers
+[You can discover the financial backers of this project inside the `Backers.md` file](https://github.com/bevry/jquery-slidescrollpanel/blob/master/Backers.md#files)
+
+
 ## License
 Licensed under the incredibly [permissive](http://en.wikipedia.org/wiki/Permissive_free_software_licence) [MIT License](http://creativecommons.org/licenses/MIT/)
 <br/>Copyright &copy; 2013+ [Bevry Pty Ltd](http://bevry.me)
