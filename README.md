@@ -32,7 +32,7 @@ umd: true
 
 
 ## Backers
-[You can discover the financial backers of this project inside the `Backers.md` file](https://github.com/bevry/jquery-slidescrollpanel/blob/master/Backers.md#files)
+[You can discover the financial backers of this project inside the `Backers.md` file](https://github.com/docpad/docpad-plugin-umd/blob/master/Backers.md#files)
 
 
 ## License
