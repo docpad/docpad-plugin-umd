@@ -1,0 +1,37 @@
+{
+	"name": "docpad-plugin-umd",
+	"version": "2.0.0",
+	"description": "Wrap specified JavaScript documents in the Universal Module Definition (UMD) allowing them to run in AMD, Require.js, CommonJS/Node.js and Vanilla environments automatically",
+	"homepage": "http://docpad.org/plugin/umd",
+	"keywords": [
+		"docpad",
+		"docpad-plugin",
+		"umd","amd","require.js","require","commonjs","common.js","module","definition","wrap","wrapper"
+	],
+	"author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
+	"maintainers": [
+		"Benjamin Lupton <b@lupton.cc> (https://github.com/balupton)"
+	],
+	"contributors": [
+		"Benjamin Lupton <b@lupton.cc>(https://github.com/balupton)"
+	],
+	"bugs": {
+		"url": "http://docpad.org/plugin/umd/issues"
+	},
+	"repository" : {
+		"type": "git",
+		"url": "https://github.com/docpad/docpad-plugin-umd.git"
+	},
+	"engines" : {
+		"node": ">=0.4",
+		"docpad": ">=6.3 <7"
+	},
+	"devDependencies": {
+		"coffee-script": "~1.6.2",
+		"docpad": ">=6.37 <7"
+	},
+	"main": "./out/umd.plugin.js",
+	"scripts": {
+		"test": "node ./out/umd.test.js"
+	}
+}
