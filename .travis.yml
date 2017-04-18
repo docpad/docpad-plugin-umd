@@ -1,25 +1,27 @@
-# February 12, 2015
-# https://github.com/bevry/base
+sudo: false
 language: node_js
-# install npm@1 so we can install npm@2 so we can ensure we have the latest version (can't install npm@2 directly on 0.8 as their bundled npm is too old)
-# ensure coffee-script is installed (needed for cake commands)
-# ensure dev dependencies are installed (handled via npm install)
-# ensure test dependencies are installed (handled via cake install)
-install: "npm install -g npm@1 && npm install -g npm@2 && npm install coffee-script && npm install && ./node_modules/.bin/cake install"
-# ensure our application is compiled before we run our tests
-before_script: "./node_modules/.bin/cake compile"
-script: "npm test"
 node_js:
-  - "0.8"
-  - "0.10"
-  - "0.12"
-  - iojs
+- '0.8'
+- '0.10'
+- '0.12'
+- '4'
+- '6'
+- '7'
+matrix:
+  fast_finish: true
 cache:
   directories:
-    - node_modules
+  - "$HOME/.npm"
+  - "$HOME/.yarn-cache"
+install:
+- eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/node-install.bash)"
+before_script:
+- eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/node-verify.bash)"
+after_success:
+- eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/node-publish.bash)"
 notifications:
-  irc:
-    - "irc.freenode.org#bevry-dev"
+  slack:
+    secure: DQJdWJXcshyl0i1zGqKkVm+cTRi4VN85jUyiz67hPnZhvHR836I8QsQ2QKOM6FTgj1ITbqgV6ANLpaYXGGQ5R+bfVvdUryuvpTjhcyyDLAw2/y+kls6CY5LqXp4xJUw+Q5rjVAOwos+itI4vFEQtUY9WlOVUeadR6I+M76M3O/g=
   email:
     recipients:
-      - travisci@bevry.me
+      secure: 3nTfL1UL1YBQAdZgRVtHn7O0O4vgQvyMEDjYU1/lBRr0vlhs081pi7XVI2N2p6vGy/KtUxpOxFt/u8iOv1ImjsfZltE3nKxonCs7APA5dWYhWilvjiE4+Yo1Y7abFIVWPPbL+iLOaCBC9vLIxexFqWAa2ry3wxMcV5pog8AVkj0=
