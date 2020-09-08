@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-umd",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Wrap specified JavaScript documents in the Universal Module Definition (UMD) allowing them to run in AMD, Require.js, CommonJS/Node.js, Ender and Vanilla environments automatically",
   "homepage": "https://github.com/docpad/docpad-plugin-umd",
   "license": "MIT",
@@ -14,6 +14,7 @@
     "docpad-plugin",
     "ender",
     "ender.js",
+    "esnext",
     "node",
     "require",
     "require.js",
@@ -84,6 +85,7 @@
       "directory": "source",
       "entry": "index.coffee",
       "tags": [
+        "source",
         "coffeescript",
         "require"
       ],
@@ -94,6 +96,7 @@
       "directory": "edition-esnext",
       "entry": "index.js",
       "tags": [
+        "compiled",
         "javascript",
         "esnext",
         "require"
@@ -109,13 +112,16 @@
     "docpad-baseplugin": "^1.4.0"
   },
   "devDependencies": {
-    "@bevry/update-contributors": "^1.15.0",
+    "@bevry/update-contributors": "^1.17.0",
     "coffeelint": "^2.1.0",
     "coffeescript": "^2.5.1",
-    "docpad": "^6.83.1",
-    "docpad-plugintester": "^1.6.2",
-    "projectz": "^2.13.0",
-    "valid-directory": "^3.0.0"
+    "docpad": "^6.83.2",
+    "docpad-plugintester": "^1.7.3",
+    "projectz": "^2.16.0",
+    "valid-directory": "^3.4.0"
+  },
+  "peerDependencies": {
+    "docpad": "^6.83.2"
   },
   "scripts": {
     "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
@@ -131,7 +137,8 @@
     "our:release:prepare": "npm run our:clean && npm run our:compile && npm run our:test && npm run our:meta",
     "our:release:push": "git push origin master && git push origin --tags",
     "our:release:tag": "export MESSAGE=$(cat ./HISTORY.md | sed -n \"/## v$npm_package_version/,/##/p\" | sed 's/## //' | awk 'NR>1{print buf}{buf = $0}') && test \"$MESSAGE\" || (echo 'proper changelog entry not found' && exit -1) && git tag v$npm_package_version -am \"$MESSAGE\"",
-    "our:setup": "npm run our:setup:install",
+    "our:setup": "npm run our:setup:dpt && npm run our:setup:install",
+    "our:setup:dpt": "cd test && npm install && cd ..",
     "our:setup:install": "npm install",
     "our:test": "npm run our:verify && npm test",
     "our:verify": "npm run our:verify:coffeelint && npm run our:verify:directory",
