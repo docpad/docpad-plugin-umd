@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-umd",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Wrap specified JavaScript documents in the Universal Module Definition (UMD) allowing them to run in AMD, Require.js, CommonJS/Node.js, Ender and Vanilla environments automatically",
   "homepage": "https://github.com/docpad/docpad-plugin-umd",
   "license": "MIT",
@@ -102,7 +102,7 @@
         "require"
       ],
       "engines": {
-        "node": "10 || 12 || 13 || 14"
+        "node": "10 || 12 || 14 || 15"
       }
     }
   ],
@@ -112,13 +112,13 @@
     "docpad-baseplugin": "^1.4.0"
   },
   "devDependencies": {
-    "@bevry/update-contributors": "^1.17.0",
+    "@bevry/update-contributors": "^1.18.0",
     "coffeelint": "^2.1.0",
     "coffeescript": "^2.5.1",
     "docpad": "^6.83.2",
     "docpad-plugintester": "^1.7.3",
-    "projectz": "^2.16.0",
-    "valid-directory": "^3.4.0"
+    "projectz": "^2.17.0",
+    "valid-directory": "^3.5.0"
   },
   "peerDependencies": {
     "docpad": "^6.83.2"
